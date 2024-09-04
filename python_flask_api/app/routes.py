@@ -1,6 +1,5 @@
 from flask import request, jsonify
-from app import app, mysql
-from app import db
+from app import app, db
 
 @app.route('/create_team', methods=['POST'])
 def create_team():
