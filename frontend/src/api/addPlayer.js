@@ -1,0 +1,27 @@
+import * as URL from "./urls";
+import axios from "axios";
+import header from "./headers";
+
+const addPlayer = async (team_id, name, position) => {
+  const requestURL = URL.baseURL + URL.addPlayer;
+  const data = {
+    team_id,
+    name,
+    position,
+  };
+
+  try {
+    const response = axios({
+      method: "post",
+      url: requestURL,
+      headers: header,
+      data: data,
+    });
+    return response;
+  } catch (error) {
+    console.error("There was an error making the request:", error);
+    throw error;
+  }
+};
+
+export default addPlayer;
