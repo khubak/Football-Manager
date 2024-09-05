@@ -1,18 +1,16 @@
 import * as URL from "./urls";
 import axios from "axios";
 import requestHeaders from "./auth";
+import header from "./headers";
 
-const getOne = async (id) => {
-  const requestURL = URL.baseURL + URL.getOneURL + id;
+const getTeams = async () => {
+  const requestURL = URL.baseURL + URL.getTeams;
 
   try {
     const response = axios({
       method: "get",
       url: requestURL,
-      headers: requestHeaders("GET"),
-      params: {
-        EO_ID: id,
-      },
+      headers: header,
     });
     return response;
   } catch (error) {
@@ -21,4 +19,4 @@ const getOne = async (id) => {
   }
 };
 
-export default getOne;
+export default getTeams;

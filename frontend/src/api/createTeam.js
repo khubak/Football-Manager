@@ -1,17 +1,18 @@
 import * as URL from "./urls";
 import axios from "axios";
-import requestHeaders from "./auth";
+import header from "./headers";
 
-const createTeam = async (data) => {
+const createTeam = async (name, stadium) => {
   const requestURL = URL.baseURL + URL.createTeam;
   const data = {
-    
-  }
+    name,
+    stadium,
+  };
   try {
     const response = axios({
       method: "post",
       url: requestURL,
-      headers: {}
+      headers: header,
       data: data,
     });
     return response;

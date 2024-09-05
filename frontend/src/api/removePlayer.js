@@ -1,15 +1,16 @@
+import header from "./headers";
 import * as URL from "./urls";
 import axios from "axios";
 
-export const login = async (loginRequestBody) => {
-  const requstURL = URL.baseURL + URL.loginURL;
+const removePlayer = async (player_id) => {
+  const requstURL = URL.baseURL + URL.removePlayer + player_id;
 
   try {
     const response = await axios({
-      method: "post",
+      method: "del",
       url: requstURL,
-      headers: getLoginRequestHeaders,
-      data: loginRequestBody,
+      headers: header,
+      params: { player_id },
     });
     return response;
   } catch (error) {
@@ -18,13 +19,4 @@ export const login = async (loginRequestBody) => {
   }
 };
 
-export const createLoginRequestBody = (username, password, language_id) => ({
-  username: username,
-  password: password,
-  language_id: language_id,
-});
-
-export const getLoginRequestHeaders = () => ({
-  "Content-Type": "application/json",
-  "Cache-Control": "no-cache",
-});
+export default removePlayer;
