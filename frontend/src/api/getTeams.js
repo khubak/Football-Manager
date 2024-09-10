@@ -1,6 +1,5 @@
 import * as URL from "./urls";
 import axios from "axios";
-import requestHeaders from "./auth";
 import header from "./headers";
 
 const getTeams = async () => {
