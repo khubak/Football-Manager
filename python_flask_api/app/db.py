@@ -48,3 +48,13 @@ def execute_stored_procedure(proc_name, params=None, result=False):
             return True, None, results
     except Exception as e:
         return False, str(e)
+    
+def map_response(unnamed_data, field_names):
+    mapped_results = []
+
+    for result in unnamed_data[0]:
+        entry_dict = {field: result[index]
+                      for index, field in enumerate(field_names)}
+        mapped_results.append(entry_dict)
+
+    return mapped_results

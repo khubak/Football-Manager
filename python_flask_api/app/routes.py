@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from app import app, db
+from app import app, db, response_fields as rf
 
 @app.route('/create_team', methods=['POST'])
 def create_team():
@@ -32,7 +32,7 @@ def assign_coach():
 def get_teams():
     success, error, result = db.execute_stored_procedure('get_all_teams', None, True)
     if success:
-        return jsonify(result), 200
+        return jsonify(db.map_response(result, rf.get_teams_response_fields)), 200
     else:
         return jsonify({"error": error}), 500
 

@@ -10,14 +10,32 @@ const TeamsComponent = () => {
   if (status === "failed") {
     return <div>Error: {errors}</div>;
   }
-  console.log(teams)
+
+  if (teams.length === 0) {
+    return <div>No teams found</div>;
+  }
+
   return (
     <div>
       <h1>Teams List</h1>
-      {status === "succeeded" && (
+      {status === "succeded" && (
         <ul>
           {teams.map((team) => (
-            <li key={team[0]}>{team[1]}</li>
+            <li key={team.id}>
+              <h2>{team.name}</h2>
+              <p>Stadium: {team.stadium}</p>
+
+              <p>
+                Players:{" "}
+                {team.players
+                  ? team.players.split(",").join(", ")
+                  : "No players available"}
+              </p>
+
+              <p>
+                Coaches: {team.coaches ? team.coaches : "No coaches available"}
+              </p>
+            </li>
           ))}
         </ul>
       )}
