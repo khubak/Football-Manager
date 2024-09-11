@@ -13,19 +13,19 @@ const TeamsList = () => {
   };
 
   if (status === "loading") {
-    return <div>Loading teams...</div>;
+    return <>Loading teams...</>;
   }
 
   if (status === "failed") {
-    return <div>Error: {errors}</div>;
+    return <>Error: {errors}</>;
   }
 
   if (teams.length === 0) {
-    return <div>No teams found</div>;
+    return <>No teams found</>;
   }
 
   return (
-    <div>
+    <>
       {status === "succeded" && (
         <ListGroup as="ul">
           {teams.map((team) => (
@@ -43,7 +43,7 @@ const TeamsList = () => {
           ))}
         </ListGroup>
       )}
-    </div>
+  </>
   );
 };
 
