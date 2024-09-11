@@ -6,12 +6,16 @@ const teamsSlice = createSlice({
   initialState: {
     teams: [],
     selectedTeamId: null,
+    selectedTeamPlayers: null,
     errors: [],
     status: "idle",
   },
   reducers: {
     selectedTeamId: (state, action) => {
       state.selectedTeamId = action.payload
+    },
+    selectedTeamPlayers: (state, action) => {
+      state.selectedTeamPlayers = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -35,5 +39,5 @@ export const fetchAllTeams = createAsyncThunk("teams/fetchAll", async () => {
   return response.data;
 });
 
-export const { selectedTeamId } = teamsSlice.actions;
+export const { selectedTeamId, selectedTeamPlayers } = teamsSlice.actions;
 export default teamsSlice.reducer;
