@@ -1,6 +1,7 @@
 import PlayersList from "../components/PlayersList";
 import TeamsList from "../components/TeamsList";
 import { Col, Container, Row } from "react-bootstrap";
+
 function Home() {
   return (
     <Container fluid>
