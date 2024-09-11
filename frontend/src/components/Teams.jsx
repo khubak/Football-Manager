@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { useFetchTeams } from "../hooks/useFetchTeams";
+import ListGroup from "react-bootstrap/ListGroup";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedTeamId } from "../redux/slices/teams";
 
 const TeamsComponent = () => {
   const { teams, status, errors } = useFetchTeams();
+  const selectedId = useSelector((state) => state.teams.selectedTeamId);
+  const dispatch = useDispatch()
+  const handleClick = (teamId) => {
+    dispatch(selectedTeamId(teamId))
+  };
 
   if (status === "loading") {
     return <div>Loading teams...</div>;
@@ -17,11 +26,17 @@ const TeamsComponent = () => {
 
   return (
     <div>
+      <p>{selectedId ? selectedId : "tren null"}</p>
       <h1>Teams List</h1>
       {status === "succeded" && (
-        <ul>
+        <ListGroup as="ul">
           {teams.map((team) => (
-            <li key={team.id}>
+            <ListGroup.Item
+              as="li"
+              key={team.id}
+              active={selectedId === team.id}
+              onClick={() => handleClick(team.id)}
+            >
               <h2>{team.name}</h2>
               <p>Stadium: {team.stadium}</p>
 
@@ -35,9 +50,9 @@ const TeamsComponent = () => {
               <p>
                 Coaches: {team.coaches ? team.coaches : "No coaches available"}
               </p>
-            </li>
+            </ListGroup.Item>
           ))}
-        </ul>
+        </ListGroup>
       )}
     </div>
   );
