@@ -72,7 +72,7 @@ CALL add_player_to_team('Alphonso Davies', 'Defender', 7);
 
 -- Chelsea Players
 CALL add_player_to_team('Mason Mount', 'Midfielder', 8);
-CALL add_player_to_team('N\'Golo Kanté', 'Midfielder', 8);
+CALL add_player_to_team('Golo Kanté', 'Midfielder', 8);
 CALL add_player_to_team('Kai Havertz', 'Forward', 8);
 CALL add_player_to_team('Thiago Silva', 'Defender', 8);
 CALL add_player_to_team('Édouard Mendy', 'Goalkeeper', 8);
