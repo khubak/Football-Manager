@@ -5,7 +5,7 @@ const TopBar = () => {
     <Navbar expand="lg">
     <Container>
       <Navbar.Brand href="/">
-        <img src="/vite.svg" width="30" height="30"></img>
+        <img src="/fm_logo.svg" width="100" height="70"></img>
         Football Manager
       </Navbar.Brand>
       <Nav.Link href="/">Home</Nav.Link>
