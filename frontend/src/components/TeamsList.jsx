@@ -36,7 +36,7 @@ const TeamsList = () => {
               onClick={() => handleClick(team.id, team.players)}
             >
               <h2>{team.name}</h2>
-              <p>{team.stadium}</p>
+              <h1>{team.stadium}</h1>
 
               <p>{team.coaches ? team.coaches : "No coaches available"}</p>
             </ListGroup.Item>
