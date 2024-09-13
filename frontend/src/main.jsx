@@ -4,17 +4,23 @@ import App from "./App.jsx";
 import "./index.css";
 import store from "./redux/store.js";
 import { Provider } from "react-redux";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import TopBar from "./components/TopBar.jsx";
-import {BrowserRouter} from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-      <TopBar />
-      <App />
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>
 );

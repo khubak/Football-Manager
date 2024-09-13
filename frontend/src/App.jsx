@@ -1,15 +1,14 @@
-import './App.css'
-import Home from './pages/Home'
-import { Nav, NavItem } from 'react-bootstrap'
+import "./App.css";
+import Home from "./pages/Home";
+import TopBar from "./components/TopBar";
 
 function App() {
-
   return (
     <>
-    <Nav variant="pills" justify></Nav>
+          <TopBar />
       <Home />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
