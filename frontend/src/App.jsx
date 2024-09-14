@@ -1,12 +1,12 @@
 import "./App.css";
-import Home from "./pages/Home";
 import TopBar from "./components/TopBar";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
       <TopBar />
-      <Home />
+      <Outlet />
     </>
   );
 }

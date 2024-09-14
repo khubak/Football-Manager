@@ -5,15 +5,31 @@ import "./index.css";
 import store from "./redux/store.js";
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TopBar from "./components/TopBar.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import CreateTeam from "./pages/CreateTeam.jsx";
+import Home from "./pages/Home.jsx";
+import ManageTeams from "./pages/ManageTeams.jsx"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "create_team",
+        element: <CreateTeam />,
+      },
+      {
+        path: "manage_teams",
+        element: <ManageTeams />,
+      },
+    ],
   },
 ]);
 

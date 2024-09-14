@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Pagination } from "react-bootstrap";
 
-const TeamsListPagination = ({props}) => {
+const TeamsListPagination = ({ props }) => {
   const { totalPages, currentPage, setCurrentPage } = props;
   const paginationItems = [];
-  
+
   for (let page = 1; page <= totalPages; page++) {
     paginationItems.push(
       <Pagination.Item
