@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { selectedTeamPlayers } from "../redux/slices/teams";
 import { Button, ButtonGroup, ListGroup } from "react-bootstrap";
 
+//TODO: send player id by fetchteams from backend, key=player.id
+
 function PlayersList() {
   const players = useSelector((state) => state.teams.selectedTeamPlayers);
 
