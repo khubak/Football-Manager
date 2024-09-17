@@ -15,7 +15,7 @@ const teamsSlice = createSlice({
       state.selectedTeamId = action.payload
     },
     selectedTeamPlayers: (state, action) => {
-      state.selectedTeamPlayers = action.payload
+      state.selectedTeamPlayers = action.payload.toString().split(",")
     }
   },
   extraReducers: (builder) => {

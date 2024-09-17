@@ -43,7 +43,7 @@ const TeamsList = () => {
               >
                 <h2>{team.name}</h2>
                 <h1>{team.stadium}</h1>
-                <p>{team.coaches ? team.coaches : "No coaches available"}</p>
+                <p>{team.coaches ? team.coaches : "No coaches assigned"}</p>
               </ListGroup.Item>
             ))}
           </ListGroup>
